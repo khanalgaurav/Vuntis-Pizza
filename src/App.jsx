@@ -1,20 +1,25 @@
-import SubscribeBanner from "./components/SubscribeBanner/SubscribeBanner"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Footer from "./components/Footer/Footer"
-import Hero from "./components/Hero/Hero"
 import Navbar from "./components/Navbar/Navbar"
-import SpecialCard from "./components/Specialities/SpecialCard"
+import Home from "./pages/Home"
+import AboutUs from "./pages/AboutUs"
+import ContactUs from "./pages/ContactUs"
+import LoginSignup from "./pages/LoginSignup"
 
 function App() {
 
   return (
     <>
-        <Navbar/>
-      <div className="mx-20">
-        <Hero/>
-        <SpecialCard/>
-        <SubscribeBanner/>
-      </div>
-        <Footer/>
+        <BrowserRouter>
+          <Navbar/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path="/about-us" element={<AboutUs/>}/>
+            <Route path="/contact-us" element={<ContactUs/>}/>
+            <Route path="/login" element={<LoginSignup/>}/>
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
     </>
   )
 }
